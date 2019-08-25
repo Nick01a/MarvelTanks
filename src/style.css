@@ -1,0 +1,177 @@
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-image: url("../images/backround_img.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.play_map{
+    display: grid;
+    height: 100%;
+    width: 50%;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    box-sizing: border-box;
+}
+
+.elem {
+    /*border: 1px solid black;*/
+}
+
+.fire {
+    background: url("../images/fire_mod.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.easy_block {
+    background: url("../images/easy_block.jpg") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.floor {
+    background: rgb(128, 128, 128) no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.heavy_block {
+    background: url("../images/hard_block.PNG") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.daredevil {
+    background: url("../images/daredevil_mod.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.spiderman {
+    background: url("../images/spiderman_mod.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.ironman {
+    background: url("../images/ironman_mod.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.hawkeye {
+    background: url("../images/hawkeye_mod.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.monster {
+    background: url("../images/moster_mod.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.modal_player{
+    /* display: block; */
+    position: absolute;
+    top: 3%;
+    left: 27%;
+    height: 93vh;
+    width: 46%;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.block1{
+    width: 100%;
+    height: 55%;
+}
+
+.player_1{
+    width: 50%;
+    height: 100%;
+    background-color: antiquewhite;
+    padding-top: 10px;
+    float: left;
+    font-size: 22px;
+    text-align: center;
+}
+
+.player_2{
+    width: 50%;
+    height: 100%;
+    background-color: lemonchiffon;
+    float: left;
+    padding-top: 10px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.heroes{
+    width: 100%;
+    height: 30%;
+    /* padding: 0.5% 1%; */
+    /* background-color: aquamarine; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.start{
+    width: 100px;
+    height: 30px;
+    background-color: green;
+    border-radius: 6px;
+    color: white;
+    text-transform: uppercase;
+    /* text-align: center; */
+    margin: 4% 41%;
+}
+
+.box1{
+    width: 50%;
+    height: 50%;
+    border: 1px solid black;
+    margin: 21% auto;
+}
+
+.box2{
+    width: 50%;
+    height: 50%;
+    border: 1px solid black;
+    margin: 21% auto;
+}
