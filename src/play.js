@@ -21,7 +21,7 @@ const generate_map = () => {
     for (let i = 0; i < 4; i++){
         document.getElementsByClassName("floor")[Math.floor(Math.random() * Math.floor(document.getElementsByClassName("floor").length))].className = "monster";
     }
-    setInterval(function(){document.getElementsByClassName("floor")[Math.floor(Math.random() * Math.floor(document.getElementsByClassName("floor").length))].className = "monster";}, 2000);
+    setInterval(function(){document.getElementsByClassName("floor")[Math.floor(Math.random() * Math.floor(document.getElementsByClassName("floor").length))].className = "monster";}, 10000);
 };
 
 
@@ -71,6 +71,7 @@ const fly_fire = (hero, counter , dir) =>{
     switch (dir) {
         case "s":
         case "ArrowDown":
+        case 0:
             i = counter;
             j = 0;
             i_min = counter - 1;
@@ -78,6 +79,7 @@ const fly_fire = (hero, counter , dir) =>{
             break;
         case "w":
         case "ArrowUp":
+        case 1:
             i = -counter;
             j = 0;
             i_min = - counter + 1;
@@ -85,6 +87,7 @@ const fly_fire = (hero, counter , dir) =>{
             break;
         case "a":
         case "ArrowLeft":
+        case 2:
             i = 0;
             j = -counter;
             i_min = 0;
@@ -92,6 +95,7 @@ const fly_fire = (hero, counter , dir) =>{
             break;
         case "d":
         case "ArrowRight":
+        case 3:
             i = 0;
             j = counter;
             i_min = 0;
@@ -221,6 +225,35 @@ const move_d = (swaper) => {
 };
 
 
+
+const monster_move = () =>{
+    let monsters = document.getElementsByClassName("monster");
+    for (let i = 0; i < monsters.length; i++){
+        let moster_choice = Math.floor(Math.random() * 5);
+        let monster_direction = Math.floor(Math.random() * 4);
+        switch (moster_choice) {
+            case 0:
+                move_u(monsters[i]);
+                break;
+            case 1:
+                move_r(monsters[i]);
+                break;
+            case 2:
+                move_l(monsters[i]);
+                break;
+            case 3:
+                move_d(monsters[i]);
+                break;
+            case 4:
+                fly_fire(monsters[i], 1, monster_direction);
+                break;
+        }
+    }
+};
+
+
+
+
 document.addEventListener("keydown", (event) =>{
 
     switch(event.key){
@@ -277,5 +310,6 @@ function include(url ) {
 window.onload = () => {
     include("./src/start.js");
     // include("./src/game_over.js");
-    order_player();
+    // order_player();
+    setInterval(monster_move, 2000);
 };
