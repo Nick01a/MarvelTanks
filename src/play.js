@@ -2,7 +2,7 @@ var direction_1;
 var direction_2;
 var kill_counter_1 = 0;
 var kill_counter_2 = 0;
-
+var winner;
 
 const generate_map = () => {
     for (let i = 0; i < 15; i++){
@@ -12,16 +12,16 @@ const generate_map = () => {
             if (Math.floor(Math.random() * Math.floor(4)) === 0) point.className = "easy_block";
             if (i === 0 || j===0 || i === 14 || j === 14) point.className = "heavy_block";
             if (i%2 === 0 && j%2 ===0) point.className = "heavy_block";
+            if (i === 1 && j === 1) point.className = document.getElementById('player1_hero').children.item(0).className;
+            if (i === 13 && j === 13) point.className =  document.getElementById('player2_hero').children.item(0).className;
             document.getElementsByClassName("play_map").item(0).appendChild(point);
         }
     }
-
-    document.getElementsByClassName("floor").item(2).className = document.getElementById('player1_hero').children.item(0).className;
-    document.getElementsByClassName("floor").item(14).className = document.getElementById('player2_hero').children.item(0).className;
-    for (let i = 0; i < 4; i++){
+   for (let i = 0; i < 4; i++){
         document.getElementsByClassName("floor")[Math.floor(Math.random() * Math.floor(document.getElementsByClassName("floor").length))].className = "monster";
     }
-    setInterval(function(){document.getElementsByClassName("floor")[Math.floor(Math.random() * Math.floor(document.getElementsByClassName("floor").length))].className = "monster";}, 10000);
+   setInterval(function(){document.getElementsByClassName("floor")[Math.floor(Math.random() * Math.floor(document.getElementsByClassName("floor").length))].className = "monster";}, 10000);
+   console.log(document.getElementById('player1_hero').children.item(0).className);
 };
 
 
@@ -48,26 +48,25 @@ const cords = (item) => {
     }
 };
 
-
 const start_fire_1 = (hero) => {
-    fly_fire(hero, 1, direction_1);
-    // ultimates(hero, direction_1);
+    fly_fire(hero, 1, direction_1, 'fire', 0);
 };
 
 const start_fire_2 = (hero) => {
-    fly_fire(hero, 1, direction_2);
-    // ultimates(hero, direction_2);
+    fly_fire(hero, 1, direction_2, 'fire', 0);
 };
 
 
 
-const fly_fire = (hero, counter , dir) =>{
+const fly_fire = (hero, counter , dir, bl_class = 'fire', flag = 0) =>{
     let hero_cords = cords(hero);
     let game_field = map();
     let i;
     let j;
     let i_min;
     let j_min;
+    let i_f;
+    let j_f;
     switch (dir) {
         case "s":
         case "ArrowDown":
@@ -76,6 +75,8 @@ const fly_fire = (hero, counter , dir) =>{
             j = 0;
             i_min = counter - 1;
             j_min = 0;
+            i_f = counter + 1;
+            j_f = 0;
             break;
         case "w":
         case "ArrowUp":
@@ -84,6 +85,8 @@ const fly_fire = (hero, counter , dir) =>{
             j = 0;
             i_min = - counter + 1;
             j_min = 0;
+            i_f = -counter - 1;
+            j_f = 0;
             break;
         case "a":
         case "ArrowLeft":
@@ -92,6 +95,8 @@ const fly_fire = (hero, counter , dir) =>{
             j = -counter;
             i_min = 0;
             j_min = -counter + 1;
+            i_f = 0;
+            j_f = -counter - 1;
             break;
         case "d":
         case "ArrowRight":
@@ -100,28 +105,32 @@ const fly_fire = (hero, counter , dir) =>{
             j = counter;
             i_min = 0;
             j_min = counter - 1;
+            i_f = 0;
+            j_f = counter + 1;
     }
-            if (game_field[hero_cords[0] + i][hero_cords[1] + j].className === "floor") {
-                game_field[hero_cords[0] + i][hero_cords[1] + j].className = "fire";
+            if (game_field[hero_cords[0] + i][hero_cords[1] + j].className === "floor" || game_field[hero_cords[0] + i][hero_cords[1] + j].className === bl_class) {
+                game_field[hero_cords[0] + i][hero_cords[1] + j].className = bl_class;
                 if (counter > 1)
                     game_field[hero_cords[0] + i_min][hero_cords[1] + j_min].className = "floor";
                 setTimeout(function () {
-                    fly_fire(hero, counter + 1, dir)
+                    fly_fire(hero, counter + 1, dir, bl_class, flag);
                 }, 200);
             }
-            if (game_field[hero_cords[0] + i][hero_cords[1] + j].className === "fire")
-                if (counter > 1){
-                    game_field[hero_cords[0] + i_min][hero_cords[1] + j_min].className = "floor";
-                    // game_field[hero_cords[0] + i][hero_cords[1] + j].className = "floor"
-                }
-            if (game_field[hero_cords[0] + i][hero_cords[1] + j].className === "heavy_block")
+            if (game_field[hero_cords[0] + i][hero_cords[1] + j].className === "heavy_block"){
                 if (counter > 1)
                     game_field[hero_cords[0] + i_min][hero_cords[1] + j_min].className = "floor";
+                if (flag === 1)
+                    game_field[hero_cords[0] + i][hero_cords[1] + j].className = "floor";
+            }
+            if (game_field[hero_cords[0] + i][hero_cords[1] + j].className === "easy_block_damaged") {
+                if (counter > 1)
+                    game_field[hero_cords[0] + i_min][hero_cords[1] + j_min].className = "floor";
+                game_field[hero_cords[0] + i][hero_cords[1] + j].className = "floor";
+            }
             if (game_field[hero_cords[0] + i][hero_cords[1] + j].className === "easy_block") {
                 if (counter > 1)
                     game_field[hero_cords[0] + i_min][hero_cords[1] + j_min].className = "floor";
                 game_field[hero_cords[0] + i][hero_cords[1] + j].className = "easy_block_damaged";
-                counter = 0;
             }
             if (game_field[hero_cords[0] + i][hero_cords[1] + j].className === "monster") {
                 if (counter > 1)
@@ -136,21 +145,21 @@ const fly_fire = (hero, counter , dir) =>{
                     console.log(kill_counter_2);
                 }
             }
-            if (game_field[hero_cords[0] + i][hero_cords[1] + j].className === "easy_block_damaged") {
-                if (counter > 1)
-                    game_field[hero_cords[0] + i_min][hero_cords[1] + j_min].className = "floor";
-                game_field[hero_cords[0] + i][hero_cords[1] + j].className = "floor";
-            }
+
             if (counter >= 1) {
                 if (game_field[hero_cords[0] + i][hero_cords[1] + j].className === document.getElementById('player1_hero').children.item(0).className) {
                     game_field[hero_cords[0] + i][hero_cords[1] + j].className = "floor";
-                    alert("Player 2 won");
+                    document.getElementsByClassName("play_map").item(0).style.display = "none";
+                    winner = "Player 2";
+                    include("./src/game_over.js");
                 }
             }
             if (counter >= 1) {
                 if (game_field[hero_cords[0] + i][hero_cords[1] + j].className === document.getElementById('player2_hero').children.item(0).className) {
                     game_field[hero_cords[0] + i][hero_cords[1] + j].className = "floor";
-                    alert("Player 1 won");
+                    document.getElementsByClassName("play_map").item(0).style.display = "none";
+                    winner = "Player 1";
+                    include("./src/game_over.js");
                 }
             }
 };
@@ -159,8 +168,7 @@ const fly_fire = (hero, counter , dir) =>{
 const ultimates = (hero, dir) => {
     let hero_cords = cords(hero);
     let game_field = map();
-    if (hero.className === "ironman avg"){
-        switch (dir) {
+    switch (dir) {
             case "s":
             case "ArrowDown":
                 i = 1;
@@ -182,11 +190,15 @@ const ultimates = (hero, dir) => {
                 j = 1;
                 break;
         }
-        if (game_field[hero_cords[0] + i][hero_cords[1] + j].className === "floor")
-            game_field[hero_cords[0] + i][hero_cords[1] + j].className = "heavy_block";
+        if (hero.className === "ironman avg"){
+            if (game_field[hero_cords[0] + i][hero_cords[1] + j].className === "floor")
+                game_field[hero_cords[0] + i][hero_cords[1] + j].className = "heavy_block";
     }
-};
+        if (hero.className === "hawkeye avg"){
+            fly_fire(hero, 1, dir, 'fire_ult', 1);
+        }
 
+};
 
 const move_u = (swaper) => {
     var c = cords(swaper);
@@ -277,7 +289,10 @@ document.addEventListener("keydown", (event) =>{
             start_fire_1(document.getElementsByClassName(document.getElementById('player1_hero').children.item(0).className).item(0));
             break;
         case 'r':
-            ultimates(document.getElementsByClassName(document.getElementById('player1_hero').children.item(0).className).item(0), direction_1);
+            if (kill_counter_1 === 5) {
+                ultimates(document.getElementsByClassName(document.getElementById('player1_hero').children.item(0).className).item(0), direction_1);
+                setTimeout(function () {kill_counter_1 = 0}, 4000);
+            }
             break;
         case 'ArrowUp':
             move_u(document.getElementsByClassName(document.getElementById('player2_hero').children.item(0).className).item(0));
@@ -298,10 +313,16 @@ document.addEventListener("keydown", (event) =>{
         case 'Shift':
             start_fire_2(document.getElementsByClassName(document.getElementById('player2_hero').children.item(0).className).item(0), 1);
             break;
+        case 'l':
+            if (kill_counter_2 === 5) {
+                ultimates(document.getElementsByClassName(document.getElementById('player2_hero').children.item(0).className).item(0), direction_2);
+                setTimeout(function () {kill_counter_2 = 0}, 4000);
+            }
+            break;
     }
 });
 
-function include(url ) {
+function include(url) {
     var script = document.createElement('script');
     script.src = url;
     document.getElementsByTagName('head')[0].appendChild(script);
@@ -311,5 +332,5 @@ window.onload = () => {
     include("./src/start.js");
     // include("./src/game_over.js");
     // order_player();
-    setInterval(monster_move, 2000);
+    setInterval(monster_move, 1000);
 };

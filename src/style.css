@@ -19,6 +19,24 @@ body {
     background-size: cover;
 }
 
+.counter_1{
+    display: none;
+    margin: 0;
+    padding: 0;
+    width: 24%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+}
+
+.counter_2{
+    display: none;
+    margin: 0;
+    padding: 0;
+    width: 24%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+}
+
 .play_map{
     display: grid;
     height: 100%;
@@ -30,6 +48,14 @@ body {
 
 .elem {
     /*border: 1px solid black;*/
+}
+
+.fire_ult {
+    background: url("../images/fire_ult_mod.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
 }
 
 .fire {
@@ -47,6 +73,15 @@ body {
     background-size: cover;
     background-position: center center;
 }
+
+.easy_block_damaged {
+    background: url("../images/easy_block_damaged.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
 
 .floor {
     background: rgb(128, 128, 128) no-repeat;
@@ -183,8 +218,9 @@ h4{
     width: 25%;
     height: 20%;
     /* border: 1px solid black; */
-    margin:0 auto;
+    margin:1% auto;
 }
+
 
 .box2{
     width: 25%;
@@ -195,9 +231,9 @@ h4{
 /*  model over */
 .modal_over{
     position: absolute;
-    top: 110vh;
+    top: 0;
     left: 15%;
-    height: 93vh;
+    height: 95vh;
     /* width: 46%; */
     width: 70%;
     border: 1px solid red;
@@ -211,7 +247,7 @@ h4{
 .winner{
     position: relative;
     width: 100%;
-    height: 80px;
+    height: 23vh;
     background-color: rgb(190,76,241);
 }
 .text{
@@ -223,13 +259,23 @@ h4{
     top: 25%;
     left: 50%;
     transform: translate(-50%,-50%);
+    text-align: center;
 }
 .start_over{
     width: 100%;
-    height: 80px;
+    height: 13vh;
     background-color: rgb(40,37,65);
     border-radius: 6px;
     color: white;
     text-transform: uppercase;
     font-size: 20px;
+}
+
+
+.center{
+    text-align: center;
+}
+
+.right{
+    margin-left: 20px;
 }
