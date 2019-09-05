@@ -79,3 +79,5 @@
 # Скріни з гри
 ![im](https://user-images.githubusercontent.com/36485512/64369046-2f271000-d024-11e9-820e-9b4304d8e619.jpg)
 ![image](https://user-images.githubusercontent.com/36485512/64369229-8dec8980-d024-11e9-8646-56f59c366f36.png)
+![image](https://user-images.githubusercontent.com/36485512/64369372-e91e7c00-d024-11e9-960f-04ac763d5dca.png)
+![image](https://user-images.githubusercontent.com/36485512/64369572-5500e480-d025-11e9-93d3-7cb30da838bb.png)
