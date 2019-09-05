@@ -300,7 +300,6 @@ const monster_move = () => {
 
 
 document.addEventListener("keydown", (event) => {
-
     switch (event.key) {
         case 'w':
             move_u(document.getElementsByClassName(document.getElementById('player1_hero').children.item(0).className).item(0));
