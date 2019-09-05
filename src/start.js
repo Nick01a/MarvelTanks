@@ -40,12 +40,9 @@ tagDiv4.className = "start";
 tagDiv4.innerHTML = "start";
 tagDiv4.addEventListener("click", generate_map);
 modal.appendChild(tagDiv4);
-document.getElementsByClassName("start")[0].addEventListener('click', function () {
-    document.getElementsByClassName("modal_player")[0].style.display = "none";
-    document.getElementsByClassName("counter_1")[0].style.display="block";
-    document.getElementsByClassName("counter_2")[0].style.display="block";
-});
+
 var counter = 0;
+var st = 0;
 var hers = document.getElementsByClassName("avg");
 for (var i = 0; i < hers.length; i++) {
     hers[i].addEventListener('click', function () {
@@ -65,8 +62,16 @@ for (var i = 0; i < hers.length; i++) {
             div1.insertAdjacentHTML('beforeEnd', this.outerHTML);
             tagDiv3.appendChild(div1);
             this.style.background = 'rgb(128,128,128)';
-            // this.style.opacity = '0.8';
+            st = 1;
         }
     })
 }
-
+document.getElementsByClassName("start")[0].addEventListener('click', function () {
+    if (st === 1){
+        document.getElementsByClassName("modal_player")[0].style.display = "none";
+        document.getElementsByClassName("counter_1")[0].style.display="block";
+        document.getElementsByClassName("counter_2")[0].style.display="block";
+    }
+    else
+        alert ("Please restart page and choose two heroes");
+});

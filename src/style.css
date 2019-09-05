@@ -58,6 +58,22 @@ body {
     background-position: center center;
 }
 
+.daredevil_ult{
+    background: url("../images/daredevil_ult.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.spider_ult_final{
+    background: url("../images/spider_ult_final.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
 .fire {
     background: url("../images/fire_mod.png") no-repeat;
     width: 100%;
@@ -139,13 +155,12 @@ body {
     background-position: center center;
 }
 
-/* modal window */
+
 .modal_player{
     position: absolute;
     top: 0;
     left: 15%;
     height: 93vh;
-    /* width: 46%; */
     width: 70%;
     background-color: white;
     border: 1px solid black;
@@ -154,7 +169,6 @@ body {
     width: 42%;
     height: 100%;
     background-color: rgb(128, 128, 128);
-    /* padding-top: 10px; */
     float: left;
     text-align: center;
 }
@@ -164,29 +178,23 @@ body {
     height: 100%;
     background-color: rgb(128, 128, 128);
     float: left;
-    /* padding-top: 10px; */
-    /* font-size: 22px; */
     text-align: center;
 }
 .imageBlock{
     margin:0 auto;
     width: 70%;
-    /* height: 30%; */
     height: 80px;
-    border: 1px solid black;
+
 }
 .shift{
     margin:0 auto;
     width: 70%;
-    /* height: 15%; */
     height: 45px;
-    border: 1px solid black;
 }
 .ulti{
     width: 50px;
     height: 50px;
     margin:0 auto;
-    border: 1px solid black;
 }
 .heroes{
     width: 16%;
@@ -228,15 +236,13 @@ h4{
     /* border: 1px solid black; */
     margin: 1% auto;
 }
-/*  model over */
+
 .modal_over{
     position: absolute;
     top: 0;
     left: 15%;
     height: 95vh;
-    /* width: 46%; */
     width: 70%;
-    border: 1px solid red;
 }
 .over{
     object-fit: cover;
@@ -254,7 +260,6 @@ h4{
     color: rgb(70,242,94);
     width: 40%;
     height: 35px;
-    border: 1px solid red;
     position: absolute;
     top: 25%;
     left: 50%;
