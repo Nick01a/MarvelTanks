@@ -16,10 +16,11 @@ modal.appendChild(tagDiv1);
 let tagDiv2 = document.createElement("div");
 tagDiv2.className = "heroes";
 
-tagDiv2.insertAdjacentHTML('beforeEnd', `<div  class="spiderman avg"></div>`);
+
 tagDiv2.insertAdjacentHTML('beforeEnd', `<div  class="ironman avg" ></div>`);
 tagDiv2.insertAdjacentHTML('beforeEnd', `<div  class="daredevil avg" ></div>`);
 tagDiv2.insertAdjacentHTML('beforeEnd', `<div  class="hawkeye avg" ></div>`);
+tagDiv2.insertAdjacentHTML('beforeEnd', `<div  class="spiderman avg"></div>`);
 modal.appendChild(tagDiv2);
 
 let tagDiv3 = document.createElement("div");

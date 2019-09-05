@@ -13,7 +13,7 @@ const generate_map = () => {
             if (i === 0 || j === 0 || i === 14 || j === 14) point.className = "heavy_block";
             if (i % 2 === 0 && j % 2 === 0) point.className = "heavy_block";
             if (i === 1 && j === 1) point.className = document.getElementById('player1_hero').children.item(0).className;
-            if (i === 13 && j === 13) point.className = document.getElementById('player2_hero').children.item(0).className;
+            if (i === 13 && j === 1) point.className = document.getElementById('player2_hero').children.item(0).className;
             document.getElementsByClassName("play_map").item(0).appendChild(point);
         }
     }
