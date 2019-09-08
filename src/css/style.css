@@ -1,0 +1,286 @@
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-image: url("./src/img/backround_img.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.counter_1{
+    display: none;
+    margin: 0;
+    padding: 0;
+    width: 24%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+}
+
+.counter_2{
+    display: none;
+    margin: 0;
+    padding: 0;
+    width: 24%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+}
+
+.play_map{
+    display: grid;
+    height: 100%;
+    width: 50%;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    box-sizing: border-box;
+}
+
+.elem {
+    /*border: 1px solid black;*/
+}
+
+.fire_ult {
+    background: url("./src/img/fire_ult_mod.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.daredevil_ult{
+    background: url("./src/img/daredevil_ult.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.spider_ult_final{
+    background: url("./src/img/spider_ult_final.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.fire {
+    background: url("./src/img/fire_mod.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.easy_block {
+    background: url("./src/img/easy_block.jpg") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.easy_block_damaged {
+    background: url("./src/img/easy_block_damaged.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+.floor {
+    background: rgb(128, 128, 128) no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.heavy_block {
+    background: url("./src/img/hard_block.PNG") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.daredevil {
+    background: url("./src/img/daredevil_mod.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.spiderman {
+    background: url("./src/img/spiderman_mod.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.ironman {
+    background: url("./src/img/ironman_mod.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.hawkeye {
+    background: url("./src/img/hawkeye_mod.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.monster {
+    background: url("./src/img/moster_mod.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+.modal_player{
+    position: absolute;
+    top: 0;
+    left: 15%;
+    height: 93vh;
+    width: 70%;
+    background-color: white;
+    border: 1px solid black;
+}
+.player_1{
+    width: 42%;
+    height: 100%;
+    background-color: rgb(128, 128, 128);
+    float: left;
+    text-align: center;
+}
+
+.player_2{
+    width: 42%;
+    height: 100%;
+    background-color: rgb(128, 128, 128);
+    float: left;
+    text-align: center;
+}
+.imageBlock{
+    margin:0 auto;
+    width: 70%;
+    height: 80px;
+
+}
+.shift{
+    margin:0 auto;
+    width: 70%;
+    height: 45px;
+}
+.ulti{
+    width: 50px;
+    height: 50px;
+    margin:0 auto;
+}
+.heroes{
+    width: 16%;
+    height: 100%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+h2{
+    color:white;
+}
+h4{
+    color:white;
+}
+.start{
+    width: 100%;
+    height: 40px;
+    background-color: rgb(63,10,42);
+    border-radius: 6px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.box1{
+    width: 25%;
+    height: 20%;
+    /* border: 1px solid black; */
+    margin:1% auto;
+}
+
+
+.box2{
+    width: 25%;
+    height: 20%;
+    /* border: 1px solid black; */
+    margin: 1% auto;
+}
+
+.modal_over{
+    position: absolute;
+    top: 0;
+    left: 15%;
+    height: 95vh;
+    width: 70%;
+}
+.over{
+    object-fit: cover;
+    width: 100%;
+    height: 10%;
+    margin-bottom: 0;
+}
+.winner{
+    position: relative;
+    width: 100%;
+    height: 23vh;
+    background-color: rgb(190,76,241);
+}
+.text{
+    color: rgb(70,242,94);
+    width: 40%;
+    height: 35px;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.start_over{
+    width: 100%;
+    height: 13vh;
+    background-color: rgb(40,37,65);
+    border-radius: 6px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+
+.center{
+    text-align: center;
+}
+
+.right{
+    margin-left: 20px;
+}
